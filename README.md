@@ -5,7 +5,7 @@ Built with **HTML, CSS, and JavaScript**, inspired by the Sabo portfolio layout.
 
 ---
 
-## 🧩 Features
+##  Features
 
 - Hero section with name, role, and quick links.
 - About section describing background and interests.
@@ -21,7 +21,7 @@ Built with **HTML, CSS, and JavaScript**, inspired by the Sabo portfolio layout.
 
 ---
 
-## 🗂 Project Structure
+##  Project Structure
 
 ```text
 thejashree-portfolio/
