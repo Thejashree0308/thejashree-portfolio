@@ -1,0 +1,6 @@
+﻿static_sites:
+  - name: portfolio
+    repo: https://github.com/Thejashree0308/portfolio
+    branch: main
+    build_command: ""
+    publish: "thejashree-portfolio"
