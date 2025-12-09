@@ -3,4 +3,4 @@
     repo: https://github.com/Thejashree0308/portfolio
     branch: main
     build_command: ""
-    publish: .
+    publish: "thejashree-portfolio"
