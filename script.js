@@ -76,6 +76,30 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
+// Update footer year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// Toggle resume dropdown
+const viewResumeBtn = document.getElementById('viewResumeBtn');
+const resumeDropdown = document.getElementById('resumeDropdown');
+
+if (viewResumeBtn && resumeDropdown) {
+  viewResumeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    resumeDropdown.style.display = resumeDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    resumeDropdown.style.display = 'none';
+  });
+
+  // Prevent dropdown from closing when clicking inside it
+  resumeDropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
 // Scroll reveal animations
 const revealEls = document.querySelectorAll('.reveal');
 

@@ -55,8 +55,17 @@
                         <p class="hero-quote">Building intelligent systems, visual stories, and meaningful digital experiences.</p>
                         <div class="hero-buttons">
                             <a class="primary-btn" href="https://github.com/Thejashree0308" target="_blank">View GitHub</a>
-                            <a class="secondary-btn" href="#projects">View Projects</a>
-                            <a class="secondary-btn" href="resume_df.pdf" download>Download Resume</a>
+                            <div class="resume-options">
+                                <a href="Thejashree_resume_SW.pdf" class="btn" download>Download Software Resume</a>
+                                <a href="resume_data.pdf" class="btn" download>Download Data Resume</a>
+                            </div>
+                            <div class="resume-view-options">
+                                <button class="btn btn-outline" id="viewResumeBtn">View Resume</button>
+                                <div class="resume-dropdown" id="resumeDropdown">
+                                    <a href="Thejashree_resume_SW.pdf" target="_blank">Software Resume</a>
+                                    <a href="resume_data.pdf" target="_blank">Data Resume</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="hero-social">
                             <a href="https://github.com/Thejashree0308" class="hero-social-icon" aria-label="GitHub" target="_blank">
@@ -118,11 +127,10 @@
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <article class="project-card reveal">
-                        <svg class="project-icon project-icon-df" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="2" y="6" width="60" height="28" rx="8" ry="8" />
-                            <polyline points="6,26 18,18 30,22 42,14 56,20" />
-                        </svg>
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <img src="retail_demand_forecasting system.jpg" alt="Retail Demand Forecasting System" class="project-image">
+                        </div>
                         <h3>Demand Forecasting System</h3>
                         <p>
                             End-to-end forecasting pipeline using Python to predict product demand from historical
@@ -133,12 +141,9 @@
                     </article>
 
                     <article class="project-card">
-                        <svg class="project-icon project-icon-thera" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="6" y="8" width="52" height="24" rx="6" ry="6" />
-                            <circle cx="20" cy="20" r="4" />
-                            <circle cx="32" cy="20" r="4" />
-                            <path d="M18 26 Q 32 32 46 26" />
-                        </svg>
+                        <div class="project-image-container">
+                            <img src="therapist_chatbot.jpg" alt="Therabot - Therapist Chatbot" class="project-image">
+                        </div>
                         <h3>Therabot</h3>
                         <p>
                             A supportive web-based chatbot that uses Google's Gemini API to generate empathetic,
@@ -149,12 +154,9 @@
                     </article>
 
                     <article class="project-card">
-                        <svg class="project-icon project-icon-ai-text" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="4" y="6" width="40" height="28" rx="4" ry="4" />
-                            <rect x="46" y="10" width="14" height="20" rx="3" ry="3" />
-                            <path d="M10 26 L18 14 L26 26" />
-                            <line x1="13" y1="22" x2="23" y2="22" />
-                        </svg>
+                        <div class="project-image-container">
+                            <img src="ai_text_detector.jpg" alt="AI Text Detector" class="project-image">
+                        </div>
                         <h3>AI Text Detector</h3>
                         <p>
                             Classifier that analyzes up to 500 words of text and predicts whether it is AI-generated
@@ -165,12 +167,9 @@
                     </article>
 
                     <article class="project-card">
-                        <svg class="project-icon project-icon-argument" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="4" y="8" width="24" height="18" rx="4" ry="4" />
-                            <polygon points="16,26 10,32 22,32" />
-                            <rect x="36" y="12" width="24" height="18" rx="4" ry="4" />
-                            <polygon points="48,30 42,36 54,36" />
-                        </svg>
+                        <div class="project-image-container">
+                            <img src="argument_chatbot.jpg" alt="Argument Analysis Chatbot" class="project-image">
+                        </div>
                         <h3>Argument Chatbot</h3>
                         <p>
                             A chatbot that analyzes arguments, detects logical fallacies, and provides feedback to
@@ -181,12 +180,9 @@
                     </article>
 
                     <article class="project-card">
-                        <svg class="project-icon project-icon-quiz" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="8" y="6" width="48" height="28" rx="6" ry="6" />
-                            <circle cx="22" cy="20" r="4" />
-                            <circle cx="32" cy="20" r="4" />
-                            <circle cx="42" cy="20" r="4" />
-                        </svg>
+                        <div class="project-image-container">
+                            <img src="quiz_app.jpg" alt="Quiz App" class="project-image">
+                        </div>
                         <h3>Quiz App</h3>
                         <p>
                             Interactive quiz application with a dynamic question flow and clean UI, built using
@@ -196,30 +192,23 @@
                         <a href="https://github.com/Thejashree0308/quiz-app" target="_blank" class="project-link">View on GitHub</a>
                     </article>
 
-                    <article class="project-card reveal">
-                        <svg class="project-icon project-icon-bi" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="6" y="6" width="52" height="28" rx="8" ry="8" />
-                            <rect x="14" y="16" width="6" height="12" />
-                            <rect x="26" y="12" width="6" height="16" />
-                            <rect x="38" y="18" width="6" height="10" />
-                            <rect x="50" y="14" width="6" height="14" />
-                        </svg>
-                        <h3>Analytics Dashboards</h3>
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <img src="mail_guard.jpg" alt="Mail Guard - Email Security" class="project-image">
+                        </div>
+                        <h3>Mail Guard</h3>
                         <p>
-                            A collection of Power BI dashboards, including student performance analysis and sales
-                            performance, integrating multiple data sources into clear, actionable visuals.
+                            A full-stack email security application that protects against phishing, spam, and malicious emails.
+                            Built with MERN stack and machine learning for email analysis.
                         </p>
-                        <span class="project-tags">Power BI · Data Visualization</span>
-                        <a href="https://github.com/Thejashree0308/Sales-Dashboard-PowerBI" target="_blank" class="project-link">Sales Dashboard</a>
-                        <a href="https://github.com/Thejashree0308/powerbi-student-performance" target="_blank" class="project-link">Student Performance</a>
+                        <span class="project-tags">MERN Stack · Machine Learning · Security</span>
+                        <a href="https://github.com/Thejashree0308/mail_guard_mern" target="_blank" class="project-link">View on GitHub</a>
                     </article>
 
-                    <article class="project-card reveal">
-                        <svg class="project-icon project-icon-imgcap" viewBox="0 0 64 40" aria-hidden="true">
-                            <rect x="8" y="8" width="48" height="24" rx="6" ry="6" />
-                            <circle cx="22" cy="16" r="4" />
-                            <polyline points="16,26 24,20 32,24 40,18 48,24" />
-                        </svg>
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <img src="image_Caption_generator.png" alt="Image Caption Generator" class="project-image">
+                        </div>
                         <h3>Image Captioning</h3>
                         <p>
                             Deep learning based image captioning system that generates natural language descriptions

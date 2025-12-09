@@ -311,7 +311,32 @@ body::after {
   }
 }
 
-/* Project icons above cards */
+/* Project images */
+.project-image-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
+
+/* Project icons - fallback */
 .project-icon {
   width: 64px;
   height: 40px;
@@ -336,19 +361,74 @@ body::after {
 }
 
 /* Per-project accent colors */
-.project-icon-df * { stroke: #ffb347; }
-.project-icon-thera * { stroke: #ff7aa2; }
-.project-icon-ai-text * { stroke: #8fd6ff; }
-.project-icon-argument * { stroke: #b18cff; }
-.project-icon-quiz * { stroke: #ffe066; }
-.project-icon-bi * { stroke: #7af7c3; }
-.project-icon-imgcap * { stroke: #ff9de1; }
-.project-icon-gomoku * { stroke: #f7b267; }
-.project-icon-waste * { stroke: #8cf29a; }
+.project-icon-df * { stroke: #ffb347; }  /* demand forecasting */
+.project-icon-thera * { stroke: #ff7aa2; }  /* Therabot */
+.project-icon-ai-text * { stroke: #8fd6ff; }  /* AI text detector */
+.project-icon-argument * { stroke: #b18cff; }  /* argument chatbot */
+.project-icon-quiz * { stroke: #ffe066; }  /* quiz app */
+.project-icon-mail * { stroke: #6cb2eb; }  /* mail guard */
+.project-icon-imgcap * { stroke: #ff9de1; }  /* image captioning */
+.project-icon-gomoku * { stroke: #f7b267; }  /* Gomoku board */
+.project-icon-waste * { stroke: #8cf29a; }  /* waste management */
 
 .project-card:hover .project-icon {
   transform: translateY(-2px) scale(1.03);
   transition: transform 0.2s ease;
+}
+
+/* Resume options */
+.resume-options {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.resume-options .btn {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+}
+
+.resume-view-options {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.resume-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+}
+
+.resume-dropdown a {
+  color: #f0f0f0;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+.resume-dropdown a:hover {
+  background-color: #2a2a2a;
+}
+
+.resume-view-options:hover .resume-dropdown {
+  display: block;
+}
+
+.resume-view-options .btn {
+  width: 100%;
+  text-align: center;
 }
 
 /* ==== About Section ==== */
