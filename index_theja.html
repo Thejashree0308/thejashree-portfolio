@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thejashree B | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050509;
+      --accent: #e63946;
+      --accent-soft: rgba(230, 57, 70, 0.18);
+      --text: #f7f7ff;
+      --muted: #b0b0c0;
+      --card: #11111b;
+      --border: #26263a;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b1725 0, #050509 45%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    /* Flying glowing background like Sabo */
+    .bg-orbits {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .orbit {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(18px);
+      opacity: 0.32;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #3a0ca3);
+      animation: floatOrbit 22s linear infinite;
+    }
+
+    .orbit-1 {
+      width: 360px;
+      height: 360px;
+      top: -80px;
+      left: -60px;
+    }
+
+    .orbit-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -120px;
+      right: -80px;
+      animation-duration: 26s;
+    }
+
+    .orbit-3 {
+      width: 260px;
+      height: 260px;
+      top: 45%;
+      left: -120px;
+      animation-duration: 30s;
+    }
+
+    .orbit-4 {
+      width: 220px;
+      height: 220px;
+      bottom: 20%;
+      right: 20%;
+      animation-duration: 34s;
+    }
+
+    @keyframes floatOrbit {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate3d(30px, -20px, 0) rotate(45deg);
+      }
+      50% {
+        transform: translate3d(-20px, 20px, 0) rotate(90deg);
+      }
+      75% {
+        transform: translate3d(15px, 30px, 0) rotate(135deg);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) rotate(180deg);
+      }
+    }
+
+    /* Layout similar to Sabo */
+    .page {
+      min-height: 100vh;
+      padding: 1.5rem 8vw 4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.4rem;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .tag {
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 4.4vw, 3.3rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero h2 {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.9rem 0 0.75rem;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.ghost {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .hero-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-wrapper {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      padding: 4px;
+      background: radial-gradient(circle at top, #ff758f, #7400b8);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Resume dropdown */
+    .resume-menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: rgba(5, 5, 15, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.55rem 0.75rem;
+      min-width: 190px;
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      z-index: 20;
+    }
+
+    .resume-menu a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.35rem 0.4rem;
+      border-radius: 0.5rem;
+      display: block;
+    }
+
+    .resume-menu a:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section-content.about {
+      max-width: 42rem;
+      color: var(--muted);
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.1rem;
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 1.1rem 1.25rem 1.25rem;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-tags span {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #ffb3c1;
+    }
+
+    .project-link {
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .section-content.contact {
+      max-width: 34rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section-content.contact ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .section-content.contact li {
+      margin-bottom: 0.35rem;
+    }
+
+    .section-content.contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .section-content.contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #181828;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding-inline: 1.5rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        margin-top: 1.8rem;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbits">
+    <span class="orbit orbit-1"></span>
+    <span class="orbit orbit-2"></span>
+    <span class="orbit orbit-3"></span>
+    <span class="orbit orbit-4"></span>
+  </div>
+
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="logo">Thejashree<span>.</span></div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <p class="tag">Software Engineer | Data Enthusiast</p>
+        <h1>Hi, I'm <span>Thejashree B</span></h1>
+        <h2>I build <span id="typing-text"></span></h2>
+        <p class="hero-sub">
+          I'm Thejashree, a developer who loves building software, exploring AI/ML,
+          and creating clean, functional applications. I enjoy solving problems,
+          learning new technologies, and working on real-world ideas.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <button class="btn ghost" id="resume-btn" type="button">View my resume</button>
+          <a class="btn primary" href="#contact">Hire me &rarr;</a>
+
+          <div class="resume-menu" id="resume-menu">
+            <a href="Thejashree_resume_SW.pdf" target="_blank" rel="noopener">Software Resume</a>
+            <a href="resume_data.pdf" target="_blank" rel="noopener">Data Resume</a>
+          </div>
+        </div>
+        <div class="hero-links">
+          <a href="mailto:tshree2006@gmail.com">Email</a>
+          <span>•</span>
+          <a href="https://github.com/Thejashree0308" target="_blank" rel="noopener">GitHub</a>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/thejashree-b-293333293/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img src="theju.jpg" alt="Portrait of Thejashree B" />
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="section" id="about">
+        <div class="section-title">About Me</div>
+        <div class="section-content about">
+          <p>
+            I'm Thejashree, a developer who loves building software, exploring AI/ML,
+            and creating clean, functional applications. I enjoy solving problems,
+            learning new technologies, and working on real-world ideas that make an impact.
+          </p>
+          <p>
+            I work across the stack with Python, JavaScript, and modern web technologies, especially
+            projects that combine data, intelligence, and user-centric design.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-title">Skills</div>
+        <div class="section-content skills-grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <p>Python · JavaScript · SQL</p>
+          </div>
+          <div class="card">
+            <h3>Backend</h3>
+            <p>FastAPI · Flask · Node.js</p>
+          </div>
+          <div class="card">
+            <h3>Frontend</h3>
+            <p>React · HTML · CSS · TailwindCSS</p>
+          </div>
+          <div class="card">
+            <h3>AI / ML</h3>
+            <p>scikit-learn · PyTorch · NLP · Jupyter Notebook</p>
+          </div>
+          <div class="card">
+            <h3>Databases</h3>
+            <p>PostgreSQL · SQLite · MongoDB</p>
+          </div>
+          <div class="card">
+            <h3>Tools</h3>
+            <p>Git · GitHub · Docker · Power BI · VS Code</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-title">Projects</div>
+        <div class="section-content projects-grid">
+          <article class="project-card">
+            <img src="image_Caption_generator.png" alt="Image Captioning project" />
+            <div class="project-body">
+              <h3>Image Captioning</h3>
+              <p>
+                Deep learning based system that generates natural language descriptions for
+                images using CNN and sequence models.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>Deep Learning</span><span>Computer Vision</span>
+              </div>
+              <a class="project-link" href="https://github.com/Thejashree0308/image_captioning" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="mail_guard.jpg" alt="Mail Guard project" />
+            <div class="project-body">
+              <h3>Mail Guard</h3>
+              <p>
+                A MERN-based application that detects and filters suspicious or phishing emails
+                to improve email security.
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span><span>MERN</span><span>Security</span>
+              </div>
+              <a class="project-link" href="https://github.com/Thejashree0308/mail_guard" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="therapist_chatbot.jpg" alt="Therapist Chatbot project" />
+            <div class="project-body">
+              <h3>Therapist Chatbot</h3>
+              <p>
+                An empathetic chatbot that provides a safe and supportive space for users to share
+                their thoughts, powered by modern AI models.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>Flask</span><span>NLP</span>
+              </div>
+              <a class="project-link" href="https://github.com/Thejashree0308/therabot" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="retail_demand_forecasting system.jpg" alt="Retail Demand Forecasting System project" />
+            <div class="project-body">
+              <h3>Retail Demand Forecasting System</h3>
+              <p>
+                Data-driven forecasting system that predicts retail demand to help optimize
+                inventory and decision-making.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>Machine Learning</span><span>Time Series</span>
+              </div>
+              <a class="project-link" href="https://github.com/Thejashree0308/demand_forecasting" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="argument_chatbot.jpg" alt="Argument Chatbot project" />
+            <div class="project-body">
+              <h3>Argument Chatbot</h3>
+              <p>
+                A chatbot that analyzes arguments and fallacies, helping users reason more clearly
+                and spot flawed logic in text.
+              </p>
+              <div class="project-tags">
+                <span>Python</span><span>NLP</span><span>Flask</span>
+              </div>
+              <a class="project-link" href="https://github.com/Thejashree0308/argument_chatbot" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-title">Contact</div>
+        <div class="section-content contact">
+          <p>
+            I'm open to internships, collaborations, and interesting projects. Feel free to reach
+            out if you'd like to work together or just chat about ideas.
+          </p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:tshree2006@gmail.com">tshree2006@gmail.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Thejashree0308" target="_blank" rel="noopener">@Thejashree0308</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/thejashree-b-293333293/" target="_blank" rel="noopener">thejashree-b</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Made by Thejashree B.
+    </footer>
+  </div>
+
+  <script>
+    const typingTarget = document.getElementById("typing-text");
+    const phrases = [
+      "AI-powered applications",
+      "intelligent web experiences",
+      "data-driven solutions",
+      "clean and modern UIs",
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      const current = phrases[phraseIndex];
+      if (!deleting) {
+        typingTarget.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          setTimeout(() => {
+            deleting = true;
+          }, 1300);
+        }
+      } else {
+        typingTarget.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+      const delay = deleting ? 55 : 90;
+      setTimeout(typeLoop, delay);
+    }
+
+    if (typingTarget) {
+      typeLoop();
+    }
+
+    const resumeBtn = document.getElementById("resume-btn");
+    const resumeMenu = document.getElementById("resume-menu");
+
+    if (resumeBtn && resumeMenu) {
+      resumeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = resumeMenu.style.display === "flex";
+        resumeMenu.style.display = isOpen ? "none" : "flex";
+      });
+
+      document.addEventListener("click", () => {
+        resumeMenu.style.display = "none";
+      });
+
+      resumeMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
+  </script>
+</body>
+</html>
